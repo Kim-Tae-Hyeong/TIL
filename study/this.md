@@ -57,8 +57,10 @@
                   //this===obj
                 }
                 function d(){
-                  console.log(self.a); // 상위에 변수에 this값을 넣는다.
+                  console.log(self.a); // 20 상위에 변수에 this값을 넣는다.
                 }
+                const e = () => {
+                  console.log(this.a); // 20 동적인 this를 화살표 함수를 쓰면 정적으로 바뀌면서 상위 스코프 this를 가리킨다.
                 c();
                 d();
               }
