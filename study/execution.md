@@ -3,7 +3,7 @@ Execution Context -> **함수**를 실행할 때 필요한 환경정보를 **담
 - Variable Environment
 - Lexical Environment
     - environmentRecord : 현재문백의 식별자 (hoisting)
-    - outerEnvironmentReference : 외북 식별자 (scope chain)
+    - outerEnvironmentReference : 외부 식별자 (scope chain)
 - this
 
 
