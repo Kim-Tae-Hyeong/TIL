@@ -6,7 +6,7 @@
 
 ## 코어 자바스크립트 (inflearn)
 
-기간 : 2022.01.03 ~
+기간 : 2022.01.03 ~ 2022.01.14
 
 - [데이터 타입](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/dataType.md)
 - [실행 컨텍스트(execution context)](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/execution.md)
@@ -15,3 +15,14 @@
 - [클로저(closure)](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/closure.md)
 - [프로토타입(prototype)](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/prototype.md)
 - [클래스(class)](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/class.md)
+
+## Javascript ES6+ (inflearn)
+
+기간 : 2022.01.15 ~
+
+- Symbol
+- 새로운 자료구조들
+- Iterable, Iterator
+- Generator
+- Class
+- Promise
