@@ -20,7 +20,7 @@
 
 기간 : 2022.01.15 ~
 
-- Symbol
+- [Symbol](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/ES6/symbol.md)
 - 새로운 자료구조들
 - Iterable, Iterator
 - Generator
