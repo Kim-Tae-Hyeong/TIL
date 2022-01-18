@@ -9,7 +9,7 @@
 
 ### 11-1-1. 만들기
 
-- `Symbol([string])` : 문자열이 아닌 타입은 자동으로 toString 처리.
+- `Symbol([string])` : 문자열이 아닌 타입은 자동으로 toString 처리.( []표기법에 따라 string 생략가능 )
 
 ```js
 const sb1 = Symbol()
@@ -70,27 +70,38 @@ console.log(iu[NAME], suzi[NAME], jn[NAME])
 for (const prop in iu) {
   console.log(prop, iu[prop])
 }
+//-> 아이유 수지 재남
 
 Object.keys(iu).forEach(k => {
   console.log(k, iu[k])
 })
+//-> age 26
 
 Object.getOwnPropertyNames(iu).forEach(k => {
   console.log(k, iu[k])
 })
+//-> age 26
 
 Object.getOwnPropertySymbols(iu).forEach(k => {
   console.log(k, iu[k])
 })
+//-> Symbol(이름) "아이유"
+//   Symbol(성별) "female" * age는 안 나온다.
 
 Reflect.ownKeys(iu).forEach(k => {
   console.log(k, iu[k])
 })
+// -> age 26
+//    Symbol(이름) "아이유"
+//    Symbol(성별) "female"
+// Reflect.ownKeys -> 모든 키값을 반환
 ```
 
 ### 11-1-4. private member 만들기
-
 ```js
+//-> 즉시 실행함수 (function () {})()
+// 함수를 괄호로 감싸고 괄호해주면 함수가 실행됨
+
 const obj = (() => {
   const _privateMember1 = Symbol('private1')
   const _privateMember2 = Symbol('private1')
@@ -117,7 +128,7 @@ Object.getOwnPropertyNames(obj).forEach(k => {
   console.log(k, obj[k])
 })
 
-// 물론 아래 방법들로는 접근 가능하나...
+// 아래 방법들로는 접근 가능하나, 번거롭고 정상적인 접근이라고 보기 힘들다. 
 Object.getOwnPropertySymbols(obj).forEach(k => {
   console.log(k, obj[k])
 })
@@ -132,6 +143,11 @@ Reflect.ownKeys(obj).forEach(k => {
 - public member! 전역공간에서 공유되는 심볼.
 
 ```js
+const a = Symbol.for('abc');
+const b = Symbol.for('abc');
+a === b // true
+
+
 const COMMON1 = Symbol.for('공유심볼')
 const obj = {
   [COMMON1]: '공유할 프로퍼티 키값이에요. 어디서든 접근 가능하답니다.'
@@ -143,10 +159,12 @@ console.log(obj[COMMON2])
 
 console.log(COMMON1 === COMMON2)
 
+
+// Symbol.keyFor -> 변수에 있는 키 문자열 값을 출력
 const UNCOMMON = Symbol('비공유심볼')
-const commonSymbolKey1 = Symbol.keyFor(COMMON1)
-const commonSymbolKey2 = Symbol.keyFor(COMMON2)
-const commonSymbolKey2 = Symbol.keyFor(UNCOMMON)
+const commonSymbolKey1 = Symbol.keyFor(COMMON1) // "공유심볼"
+const commonSymbolKey2 = Symbol.keyFor(COMMON2) // "공유심볼"
+const commonSymbolKey2 = Symbol.keyFor(UNCOMMON) // undefined 그냥 심볼로 만들었기 때문!
 ```
 
 ```js
@@ -158,6 +176,7 @@ const obj = (() => {
 })()
 const COMMON2 = Symbol.for('공유심볼')
 console.log(obj[COMMON2])
+// -> 공유할 프로퍼티 키값이에요. 어디서든 접근 가능하답니다. 
 ```
 
 ## 11-3. 표준 심볼
@@ -201,6 +220,7 @@ String.prototype[Symbol.split] = function (string) {
   return result
 }
 console.log(str.split(' _ '))
+// -> 이/문자열을/이렇게/나누어주었으면/좋겠어.
 ```
 
 - Symbol.toStringTag: `Object.prototype.toString`이 호출되었을 때 어떤 명칭을 반환할 지를 지정 가능.
@@ -214,6 +234,7 @@ console.log(jn.toString())
 
 Person.prototype[Symbol.toStringTag] = 'PERSON'
 console.log(jn.toString())
+// [object object] -> [object PERSON]
 ```
 
 - Symbol.unscopables: with문과 관련.
