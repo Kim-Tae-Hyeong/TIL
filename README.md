@@ -21,8 +21,8 @@
 기간 : 2022.01.15 ~
 
 - [Symbol](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/ES6/symbol.md)
-- 새로운 자료구조들
-- Iterable, Iterator
-- Generator
-- Class
-- Promise
+- [set Weakset](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/ES6/set_weakset.md)
+- [map weakmap](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/ES6/map_weakmap.md)
+- [Iterable, Iterator, Generator](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/ES6/iterable_iterator_generator.md)
+- [Class](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/ES6/class.md)
+- [Promise](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/ES6/promise.md)
