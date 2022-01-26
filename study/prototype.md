@@ -44,7 +44,7 @@ Person.prototype.getAge = function () {
 //Person -> setOlder(), getAge()
 
 var roy = new Person("로이", 30);
-// roy {name: 재남, age: 30}
+// roy {name: 태형, age: 30}
 var jay = new Person("제이", 25);
 // jay {name: '제이',age:25}
 

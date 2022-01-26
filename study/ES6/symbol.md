@@ -12,85 +12,85 @@
 - `Symbol([string])` : 문자열이 아닌 타입은 자동으로 toString 처리.( []표기법에 따라 string 생략가능 )
 
 ```js
-const sb1 = Symbol()
-const sb2 = Symbol()
-console.log(sb1, sb2)
-console.log(sb1 === sb2)
+const sb1 = Symbol();
+const sb2 = Symbol();
+console.log(sb1, sb2);
+console.log(sb1 === sb2);
 ```
 
 ```js
-const sb1 = Symbol('symbol')
-const sb2 = Symbol('symbol')
-console.log(sb1, sb2)
-console.log(sb1 === sb2)
+const sb1 = Symbol("symbol");
+const sb2 = Symbol("symbol");
+console.log(sb1, sb2);
+console.log(sb1 === sb2);
 ```
 
 ```js
-const obj = { a: 1 }
-const sb1 = Symbol(obj)
-const sb2 = Symbol(obj)
-console.log(sb1, sb2)
-console.log(sb1 === sb2)
+const obj = { a: 1 };
+const sb1 = Symbol(obj);
+const sb2 = Symbol(obj);
+console.log(sb1, sb2);
+console.log(sb1 === sb2);
 ```
 
 ```js
-const sb = Symbol(null)
-console.log(typeof sb)
+const sb = Symbol(null);
+console.log(typeof sb);
 ```
 
 ### 11-1-2. 객체 프로퍼티의 키로 활용
 
 ```js
-const NAME = Symbol('이름')
-const GENDER = Symbol('성별')
+const NAME = Symbol("이름");
+const GENDER = Symbol("성별");
 const iu = {
-  [NAME]: '아이유',
-  [GENDER]: 'female',
-  age: 26
-}
+  [NAME]: "아이유",
+  [GENDER]: "female",
+  age: 26,
+};
 const suzi = {
-  [NAME]: '수지',
-  [GENDER]: 'female',
-  age: 26
-}
+  [NAME]: "수지",
+  [GENDER]: "female",
+  age: 26,
+};
 const jn = {
-  [NAME]: '재남',
-  [GENDER]: 'male',
-  age: 30
-}
+  [NAME]: "태형",
+  [GENDER]: "male",
+  age: 30,
+};
 
-console.log(iu, suzi, jn)
+console.log(iu, suzi, jn);
 ```
 
 ### 11-1-3. 프로퍼티 키로 할당한 심볼 탐색 (접근)
 
 ```js
-console.log(iu[NAME], suzi[NAME], jn[NAME])
+console.log(iu[NAME], suzi[NAME], jn[NAME]);
 
 for (const prop in iu) {
-  console.log(prop, iu[prop])
+  console.log(prop, iu[prop]);
 }
-//-> 아이유 수지 재남
+//-> 아이유 수지 태형
 
-Object.keys(iu).forEach(k => {
-  console.log(k, iu[k])
-})
+Object.keys(iu).forEach((k) => {
+  console.log(k, iu[k]);
+});
 //-> age 26
 
-Object.getOwnPropertyNames(iu).forEach(k => {
-  console.log(k, iu[k])
-})
+Object.getOwnPropertyNames(iu).forEach((k) => {
+  console.log(k, iu[k]);
+});
 //-> age 26
 
-Object.getOwnPropertySymbols(iu).forEach(k => {
-  console.log(k, iu[k])
-})
+Object.getOwnPropertySymbols(iu).forEach((k) => {
+  console.log(k, iu[k]);
+});
 //-> Symbol(이름) "아이유"
 //   Symbol(성별) "female" * age는 안 나온다.
 
-Reflect.ownKeys(iu).forEach(k => {
-  console.log(k, iu[k])
-})
+Reflect.ownKeys(iu).forEach((k) => {
+  console.log(k, iu[k]);
+});
 // -> age 26
 //    Symbol(이름) "아이유"
 //    Symbol(성별) "female"
@@ -98,44 +98,45 @@ Reflect.ownKeys(iu).forEach(k => {
 ```
 
 ### 11-1-4. private member 만들기
+
 ```js
 //-> 즉시 실행함수 (function () {})()
 // 함수를 괄호로 감싸고 괄호해주면 함수가 실행됨
 
 const obj = (() => {
-  const _privateMember1 = Symbol('private1')
-  const _privateMember2 = Symbol('private1')
+  const _privateMember1 = Symbol("private1");
+  const _privateMember2 = Symbol("private1");
   return {
-    [_privateMember1]: '외부에서 보이긴 하는데 접근할 방법이 마땅찮네',
+    [_privateMember1]: "외부에서 보이긴 하는데 접근할 방법이 마땅찮네",
     [_privateMember2]: 10,
     publicMember1: 20,
-    publicMember2: 30
-  }
-})()
-console.log(obj)
-console.log(obj[Symbol('private1')])
-console.log(obj[_privateMember1])
+    publicMember2: 30,
+  };
+})();
+console.log(obj);
+console.log(obj[Symbol("private1")]);
+console.log(obj[_privateMember1]);
 
 for (const prop in obj) {
-  console.log(prop, obj[prop])
+  console.log(prop, obj[prop]);
 }
 
-Object.keys(obj).forEach(k => {
-  console.log(k, obj[k])
-})
+Object.keys(obj).forEach((k) => {
+  console.log(k, obj[k]);
+});
 
-Object.getOwnPropertyNames(obj).forEach(k => {
-  console.log(k, obj[k])
-})
+Object.getOwnPropertyNames(obj).forEach((k) => {
+  console.log(k, obj[k]);
+});
 
-// 아래 방법들로는 접근 가능하나, 번거롭고 정상적인 접근이라고 보기 힘들다. 
-Object.getOwnPropertySymbols(obj).forEach(k => {
-  console.log(k, obj[k])
-})
+// 아래 방법들로는 접근 가능하나, 번거롭고 정상적인 접근이라고 보기 힘들다.
+Object.getOwnPropertySymbols(obj).forEach((k) => {
+  console.log(k, obj[k]);
+});
 
-Reflect.ownKeys(obj).forEach(k => {
-  console.log(k, obj[k])
-})
+Reflect.ownKeys(obj).forEach((k) => {
+  console.log(k, obj[k]);
+});
 ```
 
 ### 11-2. `Symbol.for` - 공유심볼
@@ -143,40 +144,38 @@ Reflect.ownKeys(obj).forEach(k => {
 - public member! 전역공간에서 공유되는 심볼.
 
 ```js
-const a = Symbol.for('abc');
-const b = Symbol.for('abc');
-a === b // true
+const a = Symbol.for("abc");
+const b = Symbol.for("abc");
+a === b; // true
 
-
-const COMMON1 = Symbol.for('공유심볼')
+const COMMON1 = Symbol.for("공유심볼");
 const obj = {
-  [COMMON1]: '공유할 프로퍼티 키값이에요. 어디서든 접근 가능하답니다.'
-}
-console.log(obj[COMMON1])
+  [COMMON1]: "공유할 프로퍼티 키값이에요. 어디서든 접근 가능하답니다.",
+};
+console.log(obj[COMMON1]);
 
-const COMMON2 = Symbol.for('공유심볼')
-console.log(obj[COMMON2])
+const COMMON2 = Symbol.for("공유심볼");
+console.log(obj[COMMON2]);
 
-console.log(COMMON1 === COMMON2)
-
+console.log(COMMON1 === COMMON2);
 
 // Symbol.keyFor -> 변수에 있는 키 문자열 값을 출력
-const UNCOMMON = Symbol('비공유심볼')
-const commonSymbolKey1 = Symbol.keyFor(COMMON1) // "공유심볼"
-const commonSymbolKey2 = Symbol.keyFor(COMMON2) // "공유심볼"
-const commonSymbolKey2 = Symbol.keyFor(UNCOMMON) // undefined 그냥 심볼로 만들었기 때문!
+const UNCOMMON = Symbol("비공유심볼");
+const commonSymbolKey1 = Symbol.keyFor(COMMON1); // "공유심볼"
+const commonSymbolKey2 = Symbol.keyFor(COMMON2); // "공유심볼"
+const commonSymbolKey2 = Symbol.keyFor(UNCOMMON); // undefined 그냥 심볼로 만들었기 때문!
 ```
 
 ```js
 const obj = (() => {
-  const COMMON1 = Symbol.for('공유심볼')
+  const COMMON1 = Symbol.for("공유심볼");
   return {
-    [COMMON1]: '공유할 프로퍼티 키값이에요. 어디서든 접근 가능하답니다.'
-  }
-})()
-const COMMON2 = Symbol.for('공유심볼')
-console.log(obj[COMMON2])
-// -> 공유할 프로퍼티 키값이에요. 어디서든 접근 가능하답니다. 
+    [COMMON1]: "공유할 프로퍼티 키값이에요. 어디서든 접근 가능하답니다.",
+  };
+})();
+const COMMON2 = Symbol.for("공유심볼");
+console.log(obj[COMMON2]);
+// -> 공유할 프로퍼티 키값이에요. 어디서든 접근 가능하답니다.
 ```
 
 ## 11-3. 표준 심볼
@@ -187,12 +186,12 @@ console.log(obj[COMMON2])
   array의 `concat` 메소드에 인자로 넘길 때 이를 flatten할지 여부를 가리키는 boolean값 (default: true)
 
 ```js
-const arr = [4, 5, 6]
-arr[Symbol.isConcatSpreadable] = true
-console.log([1, 2, 3].concat(arr))
+const arr = [4, 5, 6];
+arr[Symbol.isConcatSpreadable] = true;
+console.log([1, 2, 3].concat(arr));
 
-arr[Symbol.isConcatSpreadable] = false
-console.log([1, 2, 3].concat(arr))
+arr[Symbol.isConcatSpreadable] = false;
+console.log([1, 2, 3].concat(arr));
 ```
 
 - Symbol.iterator: 추후 다룸.
@@ -203,23 +202,23 @@ console.log([1, 2, 3].concat(arr))
 - Symbol.split: 문자열을 나누는 조건 설정.
 
 ```js
-const str = '이 _ 문자열을 _ 이렇게 _ 나누어주었으면 _ 좋겠어.'
+const str = "이 _ 문자열을 _ 이렇게 _ 나누어주었으면 _ 좋겠어.";
 String.prototype[Symbol.split] = function (string) {
-  let result = ''
-  let residue = string
-  let index = 0
+  let result = "";
+  let residue = string;
+  let index = 0;
   do {
-    index = residue.indexOf(this)
-    if(index <= -1) {
-      break
+    index = residue.indexOf(this);
+    if (index <= -1) {
+      break;
     }
-    result += residue.substr(0, index) + '/'
-    residue = residue.substr(index + this.length)
-  } while (true)
-  result += residue
-  return result
-}
-console.log(str.split(' _ '))
+    result += residue.substr(0, index) + "/";
+    residue = residue.substr(index + this.length);
+  } while (true);
+  result += residue;
+  return result;
+};
+console.log(str.split(" _ "));
 // -> 이/문자열을/이렇게/나누어주었으면/좋겠어.
 ```
 
@@ -227,17 +226,18 @@ console.log(str.split(' _ '))
 
 ```js
 class Person {
-  constructor (name) { this.name = name }
+  constructor(name) {
+    this.name = name;
+  }
 }
-const jn = new Person('재남')
-console.log(jn.toString())
+const jn = new Person("태형");
+console.log(jn.toString());
 
-Person.prototype[Symbol.toStringTag] = 'PERSON'
-console.log(jn.toString())
+Person.prototype[Symbol.toStringTag] = "PERSON";
+console.log(jn.toString());
 // [object object] -> [object PERSON]
 ```
 
 - Symbol.unscopables: with문과 관련.
-
 
 > 표준 심볼들의 의의: 해당 심볼을 재정의함으로써 기존에는 표준객체 내부 전용이던 기능들을 개발자의 입맛에 맞게 바꾸어 쓸 수 있게 되었음.
