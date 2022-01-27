@@ -187,6 +187,7 @@ const str = "이런것도 된다.";
 const makeGenerator = (iterable) =>
   function* () {
     yield* iterable;
+    // == yield 1; yield2; yield3;
   };
 const arrGen = makeGenerator(arr)();
 const mapGen = makeGenerator(map)();
@@ -223,6 +224,7 @@ new Map();
 new Set();
 new WeakMap();
 new WeakSet();
+// WeakMap, WeakSet 자체는 iterable 하지 않지만 인자로 받을 수 있는 값은 iterable를 받을 수 있다.
 Promise.all();
 Promise.race();
 Array.from();
