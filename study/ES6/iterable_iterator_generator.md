@@ -255,10 +255,13 @@ const iter = {
   },
 };
 console.log(iter.next());
+// {done: false, value:10}
 console.log(iter.next());
+// {done: false, value:20}
 console.log(iter.next());
+// {done: false, value:30}
 console.log(iter.next());
-console.log(iter.next());
+// {done: true, value:undefined}
 ```
 
 ### 14-2-2. `iterator` 구현해보기
@@ -334,6 +337,8 @@ const isIterable = (target) => typeof target[Symbol.iterator] === "function";
 
 > `for...of`, `...(spread)` 등은 모두 개체 내부 (또는 개체의 `__proto__`)의 [Symbol.iterator]를 실행한 결과를 바탕으로, `done`이 `true`가 될 때까지 계속하여 `next()`를 호출하는 식으로 구현되어 있다.
 
+> `obj는 [Symbol.iterator] 메소드가 없는데 [Symbol.iterator] 메소드를 추가해주면 iterable하게 된다. 그런데 그 메소드가 iterator를 반환해야 하고, 그런데 그 iterator는 next 메소드를 가진 객체여야 하고, next 메소드는 다시 value done 프로퍼티를 가진 객체를 반환해야 된다. 그러면 이제 obj는 iterable하다!`
+
 ```js
 // 절대 실행하지 말 것!!
 const createIterator = () => {
@@ -352,7 +357,7 @@ console.log(...obj);
 ```
 
 ```js
-// 절대 실행하지 말 것!!
+// 절대 실행하지 말  것!!
 const obj = {
   [Symbol.iterator]() {
     return this;
@@ -432,6 +437,9 @@ const obj = {
   },
 };
 console.log(...obj);
+// -> 1. [Symbol.iterator] 메소드를 가지고 있어야 해서 iterator를 만들었고
+// -> 2. 그 안에 next() 메소드를 가져야 해서 return next()를 했고
+// -> 3. next안에는 value,done 프로퍼티를 가지고 있어야 해서 value, done값을 return을 했다.
 ```
 
 #### 5) 또는 generator를 실행한 결과 역시 이터러블하다.
