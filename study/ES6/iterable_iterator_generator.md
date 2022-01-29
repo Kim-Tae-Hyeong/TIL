@@ -537,6 +537,11 @@ for (let p of obj) {
 ```js
 function* gene() {
   yield* [1, 2, 3, 4, 5];
+  // gene.next()할 경우 yield* 뒤에 값을 하나씩 꺼내서 next한다.
+  // [1,2,3,4,5]
+  // {value: 1, dont:false}
+  // {value: 2, dont:false}
+  // {value: 3, dont:false}...
   yield;
   yield* "abcde";
 }
@@ -557,8 +562,12 @@ function* gene2() {
 function* gene3() {
   console.log("yield gene1");
   yield* gene1();
+  // yield [1,10]
+  // yield [2,20]
   console.log("yield gene2");
   yield* gene2();
+  // yield [3,30]
+  // yield [4,40]
   console.log("yield* [[5, 50], [6, 60]]");
   yield* [
     [5, 50],
@@ -583,8 +592,11 @@ function* gene() {
 }
 const gen = gene();
 console.log(gen.next().value);
+// value:1
 console.log(gen.next().value);
+// value:NaN
 console.log(gen.next().value);
+// value:NaN
 ```
 
 #### 14-3-5. 비동기 작업 수행
