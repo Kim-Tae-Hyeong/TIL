@@ -601,6 +601,9 @@ console.log(gen.next().value);
 
 #### 14-3-5. 비동기 작업 수행
 
+-> userId가 1000번 이후인 데이터를 가져와서
+그중에 4번째에 위치한 User 정보를 보고싶다.
+
 ```js
 const ajaxCalls = () => {
   const res1 = fetch.get("https://api.github.com/users?since=1000");
@@ -658,3 +661,7 @@ const runGenerator = (generator, ...rest) => {
 runGenerator(getNthUserInfo, 1000, 4);
 runGenerator(getNthUserInfo, 1000, 6);
 ```
+
+### Async function
+
+지금은 async await쓰면 응답이 오고 작업이 실행이된다. promise, generator를 안쓰고 작업이 가능하다.
