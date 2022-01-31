@@ -11,9 +11,11 @@ function Person1(name) {
 Person1.prototype.getName = function () {
   return this.name;
 };
+// prototype method
 Person1.isPerson = function (obj) {
   return obj instanceof this;
 };
+// static method
 const jn1 = new Person1("태형");
 console.log(jn1.getName());
 console.log(Person1.isPerson(jn1));
@@ -22,6 +24,7 @@ class Person2 {
   constructor(name) {
     this.name = name;
   }
+  // constructor는 가장 처음이 실행이 되며 항상 실행이 되는 명령어이며 초기값을 설정할 수 있다.
   getName() {
     return this.name;
   }
@@ -31,7 +34,9 @@ class Person2 {
 }
 const jn2 = new Person2("태형2");
 console.log(jn2.getName());
+// 태형2
 console.log(Person2.isPerson(jn2));
+// true
 ```
 
 ## 15-2. 상세
