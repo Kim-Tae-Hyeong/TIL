@@ -51,10 +51,12 @@ console.log(Person1.name);
 // 기명 클래스 표현식
 const Person2 = class Person22 {};
 console.log(Person2.name);
+// Person22
 
 // 익명 클래스 표현식
 let Person3 = class {};
 console.log(Person3.name);
+// Person3
 ```
 
 #### 2) 기존 방식과의 차이점
@@ -64,13 +66,13 @@ console.log(Person3.name);
 ```js
 if (true) {
   class A {}
-  const a = new A();
+  const a = new A(); // ok
   if (true) {
-    const b = new A();
+    const b = new A(); // TDZ
     class A {}
   }
 }
-const c = new A();
+const c = new A(); // referenceError
 ```
 
 - class 내부는 strict mode가 강제된다.
@@ -140,6 +142,7 @@ const b = new B();
 class C {
   constructor() {
     C = "C";
+    // -> 내부에서는 상수 C로 간주
   }
 }
 const c = new C();
