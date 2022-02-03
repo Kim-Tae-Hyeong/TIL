@@ -383,8 +383,10 @@ class Square {
   }
 }
 class Rectangle extends Square {
+  // class Rectangle을 extends를 통해   Square를 상속 받을 수 있다.
   constructor(width, height) {
-    super(width);
+    super(width); // 상위클래스의 constructor를 호출하는 함수 오직 constructor안에서만 호출가능
+    // -> this.width = width;
     this.height = height;
   }
 }
@@ -408,11 +410,12 @@ class Employee extends class Person {
   }
 } {
   constructor(name, position) {
-    super(name);
+    super(name); // super() -> 부모의 constructor 접근
+    // super.method -> 부모의 메소드의 접근 가능
     this.position = position;
   }
 }
-const jn = new Employee("잰남", "worker");
+const jn = new Employee("숀", "worker");
 ```
 
 ```js
@@ -426,7 +429,7 @@ class Employee extends class {
     this.position = position;
   }
 }
-const jn = new Employee("잰남", "worker");
+const jn = new Employee("숀", "worker");
 console.log(jn.__proto__.__proto__.constructor.name);
 ```
 
@@ -442,7 +445,7 @@ class Employee extends Person {
     this.position = position;
   }
 }
-const jn = new Employee("잰남", "worker");
+const jn = new Employee("숀", "worker");
 ```
 
 ```js
@@ -454,7 +457,7 @@ class Employee extends function (name) {
     this.position = position;
   }
 }
-const jn = new Employee("잰남", "worker");
+const jn = new Employee("숀", "worker");
 ```
 
 - 내장 타입 상속 가능
