@@ -247,6 +247,10 @@ prom.catch(() => {
 });
 
 console.log("Hi!");
+
+// 1. then이나 catch구문은 실행큐에 후순위로 등록되고 실행된다.
+// 2. promise 인스턴스에 넘긴 함수 내부에서는, resolve나 reject 둘 중에 먼저 호출한 것만 실제로 실행된다.
+// 3. 사실은 실제로 실행되는게 아니라, 실행은 둘다 되는데, pending상태일 때만 의미가 있기 때문에 2번과 같은 결과가 나온 것이다.
 ```
 
 ### 16-2-3. 확장 Promise 만들기
@@ -261,7 +265,7 @@ Promise.resolve(42)
   .catch((err) => {
     console.error(err);
   });
-
+// 42
 Promise.reject(12)
   .then((res) => {
     console.log(res);
@@ -269,6 +273,7 @@ Promise.reject(12)
   .catch((err) => {
     console.error(err);
   });
+// error 12
 ```
 
 2. thenable 객체
@@ -282,6 +287,7 @@ const thenable = {
 const prom = Promise.resolve(thenable);
 prom.then((res) => {
   console.log(res);
+  // resolve : 33
 });
 ```
 
