@@ -305,6 +305,17 @@ prom.catch((err) => {
 
 ### 16-2-4. Promise Chaning (then, catch에서 return)
 
+.then이나 .catch 안에서
+
+1 return promise 인스턴스 : prmoise 인스턴가 리턴된것 **(return new Promise() or return Promise.resoluve() )**
+
+2 return 일반값 : promise 객체에 resolved 상태로 반환됨. 그 안에 값이 담김.
+
+3 return 안하면 : return undefined (원래 JS 동작이 이러하다.)
+
+4 Promise.resolve() or Promise.reject() : return 해주지 않는 이상 의미없음.
+-> 별개의 프라미스객체가 생성될 뿐, 현재 process상의 Prmoise 플로우에 영향을 주지 않는다. return 한 것은 1번과 같다.
+
 ```js
 new Promise((resolve, reject) => {
   setTimeout(() => {
@@ -313,7 +324,7 @@ new Promise((resolve, reject) => {
 })
   .then((res) => {
     console.log(res);
-    return "두번째 프라미스";
+    return "두번째 프라미스"; // 다음 then res값으로 넘어간다.
   })
   .then((res) => {
     console.log(res);
@@ -328,7 +339,7 @@ new Promise((resolve, reject) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         reject("네번째 프라미스");
-      }, 1000);
+      }, 1000); // 1초 뒤 reject이기 때문에 then 말고 catch로 간다.
     });
   })
   .then((res) => {
@@ -336,11 +347,12 @@ new Promise((resolve, reject) => {
   })
   .catch((err) => {
     console.error(err);
-    return new Error("이 에러는 then에 잡힙니다.");
+    return new Error("이 에러는 then에 잡힙니다."); // error 메세지가 나오면 또 다음 then을 타고 실행이 된다.
   })
   .then((res) => {
     console.log(res);
     throw new Error("이 에러는 catch에 잡힙니다.");
+    // 여기서는 throw를 통해서 process를 중단시키고 error 메세지를 반환하라고 했으므로 then말고 catch로 가게 된다.
   })
   .then((res) => {
     console.log("출력 안됨");
