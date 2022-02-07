@@ -18,7 +18,7 @@
 
 ## Javascript ES6+ (inflearn)
 
-기간 : 2022.01.15 ~
+기간 : 2022.01.15 ~ 2022.02.08
 
 - [Symbol](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/ES6/symbol.md)
 - [set Weakset](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/ES6/set_weakset.md)
