@@ -376,6 +376,13 @@ asyncThing1()
   .then(() => {
     console.log("All done!");
   });
+
+// -> asyncthing1~3 실패하면 asyncRecovery1로 간다.
+// asyncRecovery1에서 성공이면 asyncthing4로 가고 실패하면  asyncRecovery2로 간다.
+// asyncthing4에서 성공하면 'All done으로'가지만 실패하면 asyncRecovery2가 아닌 'Don't worry about it'으로 간다.
+// asyncRecovery2 성공 -> 'All done' 실패 -> 'Don't worry about it'
+// 'Don't worry about it'에서 성공하면 -> 'All done'
+// 최종적으로 'All done'은 무조건 실행이 된다.
 ```
 
 ![에러 핸들링](https://raw.githubusercontent.com/js-jsm/es6js/master/15%20%ED%94%84%EB%9D%BC%EB%AF%B8%EC%8A%A4/promise_chaining.png)
@@ -407,6 +414,7 @@ Promise.all(arr)
   .catch((err) => {
     console.error(err);
   });
+// -> 1초 뒤 [1,"resolved after 1000ms", "abc", f, "IIFE"]가 나온다.
 ```
 
 ```js
@@ -429,6 +437,14 @@ Promise.all(arr)
   .catch((err) => {
     console.error(err);
   });
+// -> 1초뒤 "rejected after 1000ms"
+
+/*
+  Promise.all() :
+1. 일반값은 그냥 resolved 된 값으로 간주
+2. iterable 내의 모든 요소들이 resolved된 순간에 다음번 then 호출. 이때 값은 iterable 실행 결과가 배열로 반환된다.
+3. iterable 내의 일부 요소가, 하나라도 reject가 되면, 그 순간 catch를 호출하여, reject된 값만 넘어온다.
+*/
 ```
 
 #### 2. `Promise.race()`
@@ -460,6 +476,7 @@ Promise.race(arr)
   .catch((err) => {
     console.error(err);
   });
+//-> 가장 빠른 2번요소 500ms가 실행된다. 시간이 없는 일반값이 있으면 가장 먼저 실행이 되기 때문에 일반값이 나온다.
 ```
 
 ```js
@@ -478,6 +495,12 @@ Promise.race(arr)
   .catch((err) => {
     console.error(err);
   });
+//-> no queue가 실행된다. setTimeout을 0해도 Queue로 가기 때문에 늦게 실행이 된다.
+/*
+Promise.reace(iterable) : 
+1. 일반값은 그냥 resolved 된 값으로 간주.
+2. iterable 내의 요소 중에 가장 먼저 resolved (then) 또는 rejected (catch) 된 값을 반환함.
+*/
 ```
 
 > 참고: [ES2017 Async Function](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/async_function)
