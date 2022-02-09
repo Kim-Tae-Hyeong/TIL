@@ -27,6 +27,11 @@
 - [Class](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/ES6/class.md)
 - [Promise](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/ES6/promise.md)
 
+
+## Javascript ES6+ Bonus (inflearn)
+
+기간 : 2022.02.09 ~ 
+
 ## CSS 100 days
 
 기간 : 2022.02.02 ~
