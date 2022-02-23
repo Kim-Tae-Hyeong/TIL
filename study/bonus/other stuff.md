@@ -13,8 +13,8 @@ Array.of(undefined);
 - `Array.prototype.find(callback)`, `Array.prototype.findIndex(callback)`
 
 ```js
-[10, 20, 30, 40, 50].find(v => v > 20);
-[10, 20, 30, 40, 50].findIndex(v => v > 30);
+[10, 20, 30, 40, 50].find((v) => v > 20);
+[10, 20, 30, 40, 50].findIndex((v) => v > 30);
 ```
 
 - `Array.prototype.fill(value[, start = 0[, end = this.length]])`
@@ -48,17 +48,17 @@ console.log(view.getInt8(0));
 
 - Typed Array
 
-생성자 | bytes | description
-:-: | :-: | :-
-Int8Array | 1 | 8-bit 부호 있는 정수
-Uin8Array | 1 | 8-bit 부호 없는 정수
-Uint8ClampedARray | 1 | 8-bit 부호 없는 고정변환 정수
-Int16Array | 2 | 16-bit 부호 있는 정수
-Uint16Array | 2 | 16-bit 부호 없는 정수
-Int32Array | 4 | 32-bit 부호 있는 정수
-Uint32Array | 4 | 32-bit 부호 없는 정수
-Float32Array | 4 | 32-bit 부동소수점 표준
-Float64Array | 8 | 64-bit 부동소수점 표준
+|      생성자       | bytes | description                   |
+| :---------------: | :---: | :---------------------------- |
+|     Int8Array     |   1   | 8-bit 부호 있는 정수          |
+|     Uin8Array     |   1   | 8-bit 부호 없는 정수          |
+| Uint8ClampedARray |   1   | 8-bit 부호 없는 고정변환 정수 |
+|    Int16Array     |   2   | 16-bit 부호 있는 정수         |
+|    Uint16Array    |   2   | 16-bit 부호 없는 정수         |
+|    Int32Array     |   4   | 32-bit 부호 있는 정수         |
+|    Uint32Array    |   4   | 32-bit 부호 없는 정수         |
+|   Float32Array    |   4   | 32-bit 부동소수점 표준        |
+|   Float64Array    |   8   | 64-bit 부동소수점 표준        |
 
 ## 19-3. 객체
 
@@ -73,9 +73,9 @@ console.log(NaN == NaN);
 console.log(NaN === NaN);
 console.log(Object.is(NaN, NaN));
 
-console.log(5 == '5');
-console.log(5 === '5');
-console.log(Object.is(5, '5'));
+console.log(5 == "5");
+console.log(5 === "5");
+console.log(Object.is(5, "5"));
 ```
 
 - `Object.assign(target, ...sources)`
@@ -91,9 +91,9 @@ console.log(o1 === obj);
 
 ```js
 const obj = { a: 1, b: 2 };
-Object.defineProperty(obj, 'c', {
-	enumerable: false,
-	value: 10
+Object.defineProperty(obj, "c", {
+  enumerable: false,
+  value: 10,
 });
 const newObj = Object.assign({}, obj);
 console.log(newObj);
@@ -103,11 +103,14 @@ console.log(newObj);
 
 ```js
 const obj = { a: 1, b: 2 };
-Object.defineProperty(obj, 'c', {
-	enumerable: false,
-	value: 10
+Object.defineProperty(obj, "c", {
+  enumerable: false,
+  value: 10,
 });
-const newObj = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
+const newObj = Object.defineProperties(
+  {},
+  Object.getOwnPropertyDescriptors(obj)
+);
 console.log(newObj);
 console.log(newObj === obj);
 ```
@@ -119,50 +122,50 @@ console.log(newObj === obj);
 - `String.fromCodePoint(code)`
 
 ```js
-const str = '𠮷abc';
+const str = "𠮷abc";
 console.log(str.length);
 console.log(str.charAt(0));
 console.log(str.charAt(1));
 console.log(str.charCodeAt(0));
 console.log(str.charCodeAt(1));
-console.log(str.split(''));
+console.log(str.split(""));
 
 console.log(str.codePointAt(0));
 console.log(str.codePointAt(1));
 
 console.log(String.fromCodePoint(134071));
-console.log(String.fromCodePoint(0x20BB7));
+console.log(String.fromCodePoint(0x20bb7));
 
-for(let c in str) {
+for (let c in str) {
   console.log(str[c]);
 }
-for(let c of str) {
+for (let c of str) {
   console.log(c);
 }
-console.log([...str])
+console.log([...str]);
 
-console.log('\u20BB7');
-console.log('\u{20BB7}');
-console.log('\u{20BB7}' === '\uD842\uDFB7');
+console.log("\u20BB7");
+console.log("\u{20BB7}");
+console.log("\u{20BB7}" === "\uD842\uDFB7");
 ```
 
 - unicode 식별자
 
 ```js
-console.log('\u0061');
-const \u0061 = 'abc';
-console.log(\u0061);
+console.log("\u0061");
+const a = "abc";
+console.log(a);
 console.log(a);
 
-const \u{62} = 'def';
-console.log(\u{62});
+const b = "def";
+console.log(b);
 console.log(b);
 ```
 
 - unicode RegExp flag
 
 ```js
-const str = '𠮷';
+const str = "𠮷";
 console.log(/^.$/.test(str));
 console.log(/^.$/u.test(str));
 ```
@@ -174,33 +177,33 @@ console.log(/^.$/u.test(str));
 - `String.prototype.endsWith(searchString[, position])`
 
 ```js
-const msg = 'to be, or not to be, that is the question.';
+const msg = "to be, or not to be, that is the question.";
 
-console.log(msg.startsWith('to be'));
-console.log(msg.endsWith('tion.'));
-console.log(msg.includes('that'));
+console.log(msg.startsWith("to be"));
+console.log(msg.endsWith("tion."));
+console.log(msg.includes("that"));
 
-console.log(msg.startsWith('to be', 14));
-console.log(msg.endsWith('to be', 19));
-console.log(msg.includes('the', 20));
+console.log(msg.startsWith("to be", 14));
+console.log(msg.endsWith("to be", 19));
+console.log(msg.includes("the", 20));
 ```
 
 - `String.prototype.repeat(number)`
 
 ```js
-console.log('x'.repeat(10));
-console.log('hello'.repeat(2));
+console.log("x".repeat(10));
+console.log("hello".repeat(2));
 ```
 
 ```js
-const indent = ' '.repeat(4);
-const indentation = depth => inde.repeat(depth);
+const indent = " ".repeat(4);
+const indentation = (depth) => inde.repeat(depth);
 ```
-
 
 ## 19-5. 숫자
 
 - `Number.isInteger(number)`
+
 ```js
 console.log(Number.isInteger(25));
 console.log(Number.isInteger(25.0));
@@ -208,6 +211,7 @@ console.log(Number.isInteger(25.1));
 ```
 
 - `Number.MAX_SAFE_INTEGER`, `Number.isSafeInteger(number)`
+
 ```js
 console.log(Math.pow(2, 53));
 console.log(Number.MAX_SAFE_INTEGER);
@@ -216,6 +220,7 @@ console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER + 1));
 ```
 
 - `Number.EPSILON`
+
 ```js
 console.log(Number.EPSILON);
 console.log(0.00000000000000004 < Number.EPSILON);
@@ -224,25 +229,25 @@ console.log(Number.isInteger(0.00000000000000004));
 
 ## 19-6. Math
 
-Method | description
-:-- | :--
-`Math.sign(x)` | -1 (음수). 0 (-0 or +0). 1 (양수)
-`Math.trunc(x)` | 소수자리 제거하고 정수만 반환
-`Math.acosh(x)` |
-`Math.asinh(x)` |
-`Math.atanh(x)` |
-`Math.cosh(x)` |
-`Math.sinh(x)` |
-`Math.tanh(x)` |
-`Math.expm1(x)` |
-`Math.fround(x)` |
-`Math.cbrt(x)` | 3제곱
-`Math.hypot(...values)` | 제곱의 합의 제곱
-`Math.log10(x)` |
-`Math.log2(x)` |
-`Math.log1p(x)` |
-`Math.clz32(x)` |
-`Math.imul(x, y)` |
+| Method                  | description                       |
+| :---------------------- | :-------------------------------- |
+| `Math.sign(x)`          | -1 (음수). 0 (-0 or +0). 1 (양수) |
+| `Math.trunc(x)`         | 소수자리 제거하고 정수만 반환     |
+| `Math.acosh(x)`         |
+| `Math.asinh(x)`         |
+| `Math.atanh(x)`         |
+| `Math.cosh(x)`          |
+| `Math.sinh(x)`          |
+| `Math.tanh(x)`          |
+| `Math.expm1(x)`         |
+| `Math.fround(x)`        |
+| `Math.cbrt(x)`          | 3제곱                             |
+| `Math.hypot(...values)` | 제곱의 합의 제곱                  |
+| `Math.log10(x)`         |
+| `Math.log2(x)`          |
+| `Math.log1p(x)`         |
+| `Math.clz32(x)`         |
+| `Math.imul(x, y)`       |
 
 ## 19-7. `__proto__` 공식화
 
@@ -277,12 +282,16 @@ const obj = {
   x: 1,
   y: 2,
   __proto__: {
-    getX () { return this.x; }
+    getX() {
+      return this.x;
+    },
   },
-  ['__proto__']: {
-    getY () { return this.y; }
-  }
-}
+  ["__proto__"]: {
+    getY() {
+      return this.y;
+    },
+  },
+};
 console.log(obj.getX());
 console.log(obj.getY());
 ```
