@@ -187,9 +187,9 @@ const ProxyClass = (() => {
 })();
 const instance = new ProxyClass();
 instance.name = "태형";
-console.log(instance.name);
-console.log("name" in instance);
-console.log(instance instanceof ProxyClass);
+console.log(instance.name); // 태형
+console.log("name" in instance); // false
+console.log(instance instanceof ProxyClass); // true
 ```
 
 ### 한시적 접근 허용
@@ -204,7 +204,7 @@ const getUserInfo = (userId) =>
       let counter = 0;
       const pr = Proxy.revocable(res, {
         get(trapTarget, key) {
-          if (counter++ > 1) {
+          if (counter++ > 2) {
             pr.revoke();
           }
           return res[key];
@@ -217,7 +217,8 @@ const getUserInfo = (userId) =>
     });
 
 getUserInfo(1003).then((r) => {
-  console.log(r.avatar_url);
-  console.log(r.id);
+  console.log(r.avatar_url); // url 주소
+  console.log(r.id); // 1003
+  console.log(r.avatar_url); // 접근 불가
 });
 ```
