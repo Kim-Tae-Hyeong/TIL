@@ -7,7 +7,7 @@
 - 패키지 의존성 및 버전 관리 도구
   - bower
   - npm \*\*
-  - yarn \*\*
+  - yarn \*\* (npm 보다는 속도가 빠르다.)
 - Boilerplate 도구
   - yeoman
 - 빌드 자동화 도구 (task runner)
@@ -17,12 +17,12 @@
 - 모듈 로더
   - CommonJS
   - RequireJS
-- 모듈 번들러
+- 모듈 번들러(전역 공간을 해치지 않고 하나의 파일로 합쳐준다.)
   - browserify
   - webpack \*\*
   - rollup
   - parcel.js \*
-- transpiler
+- transpiler(es6 => es5, jsx => javascript)
   - babel \*\*
 - 문법오류감지
   - jsHint
