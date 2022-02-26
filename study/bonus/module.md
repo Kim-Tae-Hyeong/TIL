@@ -81,6 +81,8 @@ module.exports = {
 // main.js
 const plusTwo = require("./sub1.js").plusTwo;
 console.log(plusTwo(10)); // 12
+
+// main.js <- sub1.js <- math.js (의존성 주입)
 ```
 
 - 장점
