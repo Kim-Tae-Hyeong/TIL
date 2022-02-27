@@ -161,7 +161,7 @@ export default [값 or 식]
 ```js
 export default class {}
 export default function () {}
-// Uncaught SyntaxError: Identifier '*default*' has already been declared
+// Uncaught SyntaxError: Identifier '*default*' has already been declared (한번 만 불러올 수 있다.)
 ```
 
 #### 3) Module Namespace Object `*`
@@ -175,7 +175,7 @@ export * from "module1.js";
 
 ```js
 const milk = "i am milk";
-export { milk as drink };
+export { milk as drink }; // 외부에서 import할 때는 drink로 사용하게 한다.
 ```
 
 ```js
@@ -195,13 +195,13 @@ export default myFavoriteFruitList
 #### 1) Named imports
 
 ```js
-import { member1, member2 } from "module-name";
+import { member1, member2 } from "module-name"; // member1, member2만 import해서 사용하겠다.
 ```
 
 #### 2) Module Namespace Object `*`
 
 ```js
-import * from 'module-name'
+import * from 'module-name' // 변수 모두 사용하겠다.
 import * as module1 from 'module-name'
 ```
 
@@ -226,7 +226,7 @@ import "module-name";
 #### 5) mixed
 
 ```js
-import member1, { member2 as m2, member3 } from "module-name";
+import member1, { member2 as m2, member3 } from "module-name"; // default -> member1, member2 -> m2, member3 -> member3
 ```
 
 ### 18-2-3. 실습
