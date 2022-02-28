@@ -264,6 +264,13 @@ export default (x, y) => x + y
 class 파트에서 예시로 만들었던 slide6.js의 내용을 모듈로 분리해봅시다.
 상수 모듈, utility 모듈, Slide클래스 모듈 등으로 구분해봅시다.
 
+window 기준 win + R -> cmd (Enter) <br>
+
+1. node -v
+2. mkdir modulePractice
+3. cd modulePractice
+4. npm in -g lite-server
+
 ```js
 const Slide = (() => {
   const CONTAINER = Symbol("container");
