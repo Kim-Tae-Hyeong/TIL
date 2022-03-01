@@ -13,23 +13,23 @@ Array.of(undefined);
 - `Array.prototype.find(callback)`, `Array.prototype.findIndex(callback)`
 
 ```js
-[10, 20, 30, 40, 50].find((v) => v > 20);
-[10, 20, 30, 40, 50].findIndex((v) => v > 30);
+[10, 20, 30, 40, 50].find((v) => v > 20); // 30
+[10, 20, 30, 40, 50].findIndex((v) => v > 30); // 3
 ```
 
 - `Array.prototype.fill(value[, start = 0[, end = this.length]])`
 
 ```js
-[1, 2, 3, 4, 5].fill(10);
-[1, 2, 3, 4, 5].fill(10, 2, 4);
+[1, 2, 3, 4, 5].fill(10); // [10,10,10,10,10]
+[1, 2, 3, 4, 5].fill(10, 2, 4); // [1,2,10,10,5]
 new Array(10).fill(0);
 ```
 
 - `Array.prototype.copyWithin(target[, start = 0[, end = this.length]])`
 
 ```js
-[1, 2, 3, 4, 5].copyWithin(-2);
-[1, 2, 3, 4, 5].copyWithin(0, 3, 4);
+[1, 2, 3, 4, 5].copyWithin(-2); // [1, 2, 3, 1, 2]
+[1, 2, 3, 4, 5].copyWithin(0, 3, 4); // [1, 2, 1, 2, 3]
 [1, 2, 3, 4, 5].copyWithin(-2, -3, -1);
 ```
 
