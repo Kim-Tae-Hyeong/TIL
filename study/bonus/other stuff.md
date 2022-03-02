@@ -65,17 +65,17 @@ console.log(view.getInt8(0));
 - `Object.is(a, b)`
 
 ```js
-console.log(+0 == -0);
-console.log(+0 === -0);
-console.log(Object.is(+0, -0));
+console.log(+0 == -0); //true
+console.log(+0 === -0); //true
+console.log(Object.is(+0, -0)); // false
 
-console.log(NaN == NaN);
-console.log(NaN === NaN);
-console.log(Object.is(NaN, NaN));
+console.log(NaN == NaN); // false(버그)
+console.log(NaN === NaN); // false(버그)
+console.log(Object.is(NaN, NaN)); // true
 
-console.log(5 == "5");
-console.log(5 === "5");
-console.log(Object.is(5, "5"));
+console.log(5 == "5"); // true
+console.log(5 === "5"); // false
+console.log(Object.is(5, "5")); // false
 ```
 
 - `Object.assign(target, ...sources)`
@@ -84,8 +84,8 @@ console.log(Object.is(5, "5"));
 const o1 = { a: 1, b: 1, c: 1 };
 const o2 = { b: 2, c: 2 };
 const o3 = { c: 3 };
-const obj = Object.assign(o1, o2, o3);
-console.log(o1, obj);
+const obj = Object.assign(o1, o2, o3); // {a : 1, b:2, c:3}
+console.log(o1, obj); // {a : 1, b:2, c:3} o1에 덮어씌워졌기 때문이다. 피하기 위해서는 target(o1) => {} 빈객체로 만든다.
 console.log(o1 === obj);
 ```
 
