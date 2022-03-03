@@ -123,26 +123,37 @@ console.log(newObj === obj);
 
 ```js
 const str = "𠮷abc";
-console.log(str.length);
-console.log(str.charAt(0));
-console.log(str.charAt(1));
-console.log(str.charCodeAt(0));
-console.log(str.charCodeAt(1));
+console.log(str.length); // 5
+console.log(str.charAt(0)); // 깨짐
+console.log(str.charAt(1)); // 깨짐
+console.log(str.charCodeAt(0)); // 55362
+console.log(str.charCodeAt(1)); // 57271
 console.log(str.split(""));
 
-console.log(str.codePointAt(0));
-console.log(str.codePointAt(1));
+console.log(str.codePointAt(0)); // 134071
+console.log(str.codePointAt(1)); // 57271
 
-console.log(String.fromCodePoint(134071));
-console.log(String.fromCodePoint(0x20bb7));
+console.log(String.fromCodePoint(134071)); // 𠮷
+console.log(String.fromCodePoint(0x20bb7)); // 𠮷
 
 for (let c in str) {
   console.log(str[c]);
 }
+// 깨짐
+// 깨짐
+// a
+// b
+// c
+
 for (let c of str) {
   console.log(c);
 }
-console.log([...str]);
+// 𠮷
+// a
+// b
+// c
+
+console.log([...str]); // ["𠮷","a","b","c"]
 
 console.log("\u20BB7");
 console.log("\u{20BB7}");
@@ -152,10 +163,10 @@ console.log("\u{20BB7}" === "\uD842\uDFB7");
 - unicode 식별자
 
 ```js
-console.log("\u0061");
+console.log("\u0061"); // a
 const a = "abc";
-console.log(a);
-console.log(a);
+console.log(a); // abc
+console.log(a); // abc
 
 const b = "def";
 console.log(b);
@@ -166,8 +177,8 @@ console.log(b);
 
 ```js
 const str = "𠮷";
-console.log(/^.$/.test(str));
-console.log(/^.$/u.test(str));
+console.log(/^.$/.test(str)); // false
+console.log(/^.$/u.test(str)); // true
 ```
 
 - `String.prototype.includes(searchString[, position])`
@@ -179,13 +190,13 @@ console.log(/^.$/u.test(str));
 ```js
 const msg = "to be, or not to be, that is the question.";
 
-console.log(msg.startsWith("to be"));
-console.log(msg.endsWith("tion."));
-console.log(msg.includes("that"));
+console.log(msg.startsWith("to be")); //true
+console.log(msg.endsWith("tion.")); // true
+console.log(msg.includes("that")); // true
 
-console.log(msg.startsWith("to be", 14));
-console.log(msg.endsWith("to be", 19));
-console.log(msg.includes("the", 20));
+console.log(msg.startsWith("to be", 14)); // true
+console.log(msg.endsWith("to be", 19)); // true
+console.log(msg.includes("the", 20)); //  true
 ```
 
 - `String.prototype.repeat(number)`
