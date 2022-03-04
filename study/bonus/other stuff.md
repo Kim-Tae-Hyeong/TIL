@@ -213,21 +213,21 @@ const indentation = (depth) => inde.repeat(depth);
 
 ## 19-5. 숫자
 
-- `Number.isInteger(number)`
+- `Number.isInteger(number)` d
 
 ```js
-console.log(Number.isInteger(25));
-console.log(Number.isInteger(25.0));
-console.log(Number.isInteger(25.1));
+console.log(Number.isInteger(25)); //true 정수인지 판단.
+console.log(Number.isInteger(25.0)); //true
+console.log(Number.isInteger(25.1)); //false
 ```
 
 - `Number.MAX_SAFE_INTEGER`, `Number.isSafeInteger(number)`
 
 ```js
 console.log(Math.pow(2, 53));
-console.log(Number.MAX_SAFE_INTEGER);
-console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER));
-console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER + 1));
+console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991 정수의 안전성을 위한 최대값
+console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER)); //true
+console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER + 1)); //false
 ```
 
 - `Number.EPSILON`
