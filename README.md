@@ -36,7 +36,7 @@
 - [module](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/bonus/module.md)
 - [other_stuff](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/bonus/other%20stuff.md)
 
-## CSS 100 days
+~~## CSS 100 days~~
 
-기간 : 2022.02.02 ~
-- [100 days](https://100dayscss.com/)
+~~기간 : 2022.02.02 ~ ~~
+~~- [100 days](https://100dayscss.com/)~~
