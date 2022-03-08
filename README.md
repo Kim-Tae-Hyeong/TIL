@@ -30,13 +30,13 @@
 
 ## Javascript ES6+ Bonus (inflearn)
 
-기간 : 2022.02.09 ~ 
+기간 : 2022.02.09 ~ 2022.03.08
 - [Proxy_Reflection](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/bonus/Proxy_Reflection.md)
 - [es2016+](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/bonus/es2016+.md)
 - [module](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/bonus/module.md)
 - [other_stuff](https://github.com/Kim-Tae-Hyeong/TIL/blob/master/study/bonus/other%20stuff.md)
 
-~~## CSS 100 days~~
+## CSS 100 days
 
-기간 : 2022.02.02 ~
+기간 : 2022.03.09 ~
 - [100 days](https://100dayscss.com/)
