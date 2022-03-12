@@ -1,3 +1,9 @@
+# css 네이밍 (2022.03.12)
+
+- box, cont, wrap, inner 차이
+- wrap 여러번 사용해도 되는지
+- transform-origin이 무엇인지.
+
 1. [클래스로 숫자 만들기](https://codepen.io/kimTaeHyeong/pen/xxPvgdR)
 
 - 숫자를 클래스를 이용하여 네모를 만드는 과정
