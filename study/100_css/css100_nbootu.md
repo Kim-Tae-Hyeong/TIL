@@ -1,8 +1,8 @@
 # css 네이밍 (2022.03.12)
 
-- box, cont, wrap, inner 차이
-- wrap 여러번 사용해도 되는지
-- transform-origin이 무엇인지.
+- box, cont, wrap, inner 차이 -> ?
+- wrap 여러번 사용해도 되는지 -> 자주 사용은 지양하지만 보면 여러번 사용하더라.
+- transform-origin이 무엇인지. -> CSS transform 속성과 함께 사용되는 속성으로서, 회전 중심(원점·기준점)을 지정합니다.
 
 1. [클래스로 숫자 만들기](https://codepen.io/kimTaeHyeong/pen/xxPvgdR)
 
