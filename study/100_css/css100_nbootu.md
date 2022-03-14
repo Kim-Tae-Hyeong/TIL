@@ -18,3 +18,8 @@
 - 100% -> 1,3 transform: rotate를 주었고, 2번째는 scale과, opacity를 통해서 사라지게 했다.
 - active -> inactive일 때랑 반대로 했다.
 - js를 통해서 처음 클릭했을때 inactive클래스를 제거하고 active가 없으면 추가하는 이벤트를 주었다. <br>(inactive를 처음에 넣는 이유는 페이지가 열렸을 때 이벤트가 실행되는 걸 막기위해 css에 animation : none을 주었기 때문이다.)
+
+3. [해가 지는 애니메이션](https://codepen.io/kimTaeHyeong/pen/eYymzaw?editors=1100)
+
+- 모든 div에 position absolute를 줘서 겹치게 만든다.
+- 태양같은 경우는 rotate를 통해서 돌리는데 transform-origin를 통해서 기준점을 통해서 횐전을 시키도록 만든다.
