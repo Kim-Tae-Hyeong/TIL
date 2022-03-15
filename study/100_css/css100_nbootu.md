@@ -23,3 +23,6 @@
 
 - 모든 div에 position absolute를 줘서 겹치게 만든다.
 - 태양같은 경우는 rotate를 통해서 돌리는데 transform-origin를 통해서 기준점을 통해서 횐전을 시키도록 만든다.
+- 태양을 원 가운데 위치를 두고 transform-origin을 부모 같은데 중점을 두게 하고 rotate를 통해서 안보였다 나오는 식으로 만든다.
+- 바닥은 똑같은 position absolute, z-index를 이용해서 bottom을 주고 배치시킨다.
+- 피라미드는 clip-path를 이용해서 모양을 만든다.
