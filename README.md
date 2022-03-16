@@ -41,3 +41,8 @@
 기간 : 2022.03.09 ~
 - [100 days](https://100dayscss.com/)
 - https://codepen.io/kimTaeHyeong
+
+## chrome extension(manifest v3)
+
+기간 : 2022.0x.xx ~
+-[자료](https://darrengwon.tistory.com/1389)
