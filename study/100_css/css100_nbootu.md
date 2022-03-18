@@ -4,6 +4,7 @@
 - wrap 여러번 사용해도 되는지 -> 자주 사용은 지양하지만 보면 여러번 사용하더라.
 - transform-origin이 무엇인지. -> CSS transform 속성과 함께 사용되는 속성으로서, 회전 중심(원점·기준점)을 지정합니다.
 - transform-origin 기준점이 100%넘어서면 값을 넣으면 위치가 예상하기 힘듦 알아볼것.
+- css animation 주면 테두리 선이 보이는 이슈
 
 1. [클래스로 숫자 만들기](https://codepen.io/kimTaeHyeong/pen/xxPvgdR)
 
@@ -29,3 +30,4 @@
 - 피라미드는 clip-path를 이용해서 모양을 만든다.
 - 피라미드의 가상선택자 after를 이용하여 그림자를 만든다. 모양은 clip-path를 이용한다.
 - 피라미드의 그림자도 마찬가지로 width,height값을 주고 absolute를 줘서 위치를 조정한 다음, clip-path로 피라미드 모양처럼 만든다.
+- 애니메이션를 통해 그림자를 scaleY를 이용해 표현하고, clip-path를 통해 모양을 바꾼다.
