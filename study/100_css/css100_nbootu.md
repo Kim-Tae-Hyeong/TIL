@@ -5,6 +5,7 @@
 - transform-origin이 무엇인지. -> CSS transform 속성과 함께 사용되는 속성으로서, 회전 중심(원점·기준점)을 지정합니다.
 - transform-origin 기준점이 100%넘어서면 값을 넣으면 위치가 예상하기 힘듦 알아볼것.
 - css animation 주면 테두리 선이 보이는 이슈
+- animation-fill-mode 관련 효과
 
 1. [클래스로 숫자 만들기](https://codepen.io/kimTaeHyeong/pen/xxPvgdR)
 
@@ -31,3 +32,11 @@
 - 피라미드의 가상선택자 after를 이용하여 그림자를 만든다. 모양은 clip-path를 이용한다.
 - 피라미드의 그림자도 마찬가지로 width,height값을 주고 absolute를 줘서 위치를 조정한 다음, clip-path로 피라미드 모양처럼 만든다.
 - 애니메이션를 통해 그림자를 scaleY를 이용해 표현하고, clip-path를 통해 모양을 바꾼다.
+
+4. [해가 지는 애니메이션](https://codepen.io/kimTaeHyeong/pen/MWryrwE?editors=1100)
+
+- div.circle1 -> circle2 -> circle3 이렇게 부모-자식 형태로 만들고
+- 크기를 다르게 한 다음 애니메이션을 통해 크기가 점점 커지게 만든다.
+- animation 값 중 alternate값을 주면 반대 방향으로도 애니메이션이 진행이 된다.
+- 처음에 0% 일때 scale(0), 100% scale(1)를 주고
+- 최상 부모에 10~20%, 2번째 40%, 3번째 70퍼를 0%와 같은 효과를 줘서 속도를 조정하는 식으로 했다.
