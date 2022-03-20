@@ -6,6 +6,10 @@
 - transform-origin 기준점이 100%넘어서면 값을 넣으면 위치가 예상하기 힘듦 알아볼것.
 - css animation 주면 테두리 선이 보이는 이슈
 - animation-fill-mode 관련 효과
+- 마크업을 작업할 때 순서? <br>
+  - 마크업 -> css 네이밍 추가 -> css 작업<br>
+  - 마크업 (css네이밍 같이) -> css 작업<br>
+  - 마크업(css 네이밍 + css 작업)
 
 1. [클래스로 숫자 만들기](https://codepen.io/kimTaeHyeong/pen/xxPvgdR)
 
