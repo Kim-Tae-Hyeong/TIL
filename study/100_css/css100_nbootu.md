@@ -2,14 +2,16 @@
 
 - box, cont, wrap, inner 차이 -> ?
 - wrap 여러번 사용해도 되는지 -> 자주 사용은 지양하지만 보면 여러번 사용하더라.
-- transform-origin이 무엇인지. -> CSS transform 속성과 함께 사용되는 속성으로서, 회전 중심(원점·기준점)을 지정합니다.
-- transform-origin 기준점이 100%넘어서면 값을 넣으면 위치가 예상하기 힘듦 알아볼것.
-- css animation 주면 테두리 선이 보이는 이슈
-- animation-fill-mode 관련 효과
+- transform-origin이 무엇인지. -> CSS transform 속성과 함께 사용되는 속성으로서, 회전 중심(원점·기준점)을 지정합니다. (3번)
+- transform-origin 기준점이 100%넘어서면 값을 넣으면 위치가 예상하기 힘듦 알아볼것. (3번)
+- css animation 주면 테두리 선이 보이는 이슈 (3번)
+- animation-fill-mode 관련 효과 (4번)
 - 마크업을 작업할 때 순서? <br>
   - 마크업 -> css 네이밍 추가 -> css 작업<br>
   - 마크업 (css네이밍 같이) -> css 작업<br>
   - 마크업(css 네이밍 + css 작업)
+- 꺾은선 그래프 만들기 위한 좌표 계산하기 (5번)
+- 그래프 라인 선을 어떻게 표현할 것인가 svg? div rotate?(5번)
 
 1. [클래스로 숫자 만들기](https://codepen.io/kimTaeHyeong/pen/xxPvgdR)
 
@@ -44,3 +46,5 @@
 - animation 값 중 alternate값을 주면 반대 방향으로도 애니메이션이 진행이 된다.
 - 처음에 0% 일때 scale(0), 100% scale(1)를 주고
 - 최상 부모에 10~20%, 2번째 40%, 3번째 70퍼를 0%와 같은 효과를 줘서 속도를 조정하는 식으로 했다.
+
+  5.[]
