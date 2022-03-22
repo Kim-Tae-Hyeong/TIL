@@ -12,6 +12,7 @@
   - 마크업(css 네이밍 + css 작업)
 - 꺾은선 그래프 만들기 위한 좌표 계산하기 (5번)
 - 그래프 라인 선을 어떻게 표현할 것인가 svg? div rotate?(5번)
+- 어려운 css 네이밍...(5번)
 
 1. [클래스로 숫자 만들기](https://codepen.io/kimTaeHyeong/pen/xxPvgdR)
 
@@ -47,4 +48,7 @@
 - 처음에 0% 일때 scale(0), 100% scale(1)를 주고
 - 최상 부모에 10~20%, 2번째 40%, 3번째 70퍼를 0%와 같은 효과를 줘서 속도를 조정하는 식으로 했다.
 
-  5.[]
+  5.[꺾은선 그래프](https://codepen.io/kimTaeHyeong/pen/qBpapWp?editors=1100)
+
+- cont_graph만들고 그 안에 컨텐츠를 만들기 시작했다. (위에 주황색 정보 -> inner_info, 그래프 컨텐츠 -> content_graph)
+- inner_info는 flex를 이용해서 양 끝 배치를 하고 부모에 padding, 자식한테 margin을 줘서 위치를 조정한다.
