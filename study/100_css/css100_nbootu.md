@@ -52,3 +52,5 @@
 
 - cont_graph만들고 그 안에 컨텐츠를 만들기 시작했다. (위에 주황색 정보 -> inner_info, 그래프 컨텐츠 -> content_graph)
 - inner_info는 flex를 이용해서 양 끝 배치를 하고 부모에 padding, 자식한테 margin을 줘서 위치를 조정한다.
+- 좌표를 계산해서 top을 통해서 위치 조절 점을 배치한다?
+- 꺾으선은 svg를 통해서 하는게 좋을 거 같다. (방법 확인 필요)
